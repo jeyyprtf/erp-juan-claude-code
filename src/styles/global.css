@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ───────────────────────────────────────────────────
+   Soft Operations — CSS Variables
+   ─────────────────────────────────────────────────── */
+:root {
+  --color-background: #F0F2F5;
+  --color-surface: #FFFFFF;
+  --color-primary: #4A90E2;
+  --color-primary-container: #2976c7;
+  --color-primary-fixed: #d4e3ff;
+  --color-primary-fixed-dim: #a4c9ff;
+  --color-secondary-container: #a5c9fe;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #414751;
+  --color-outline: #717783;
+  --color-outline-variant: #c1c7d3;
+  --color-pastel-blue: #A5C9FF;
+  --color-slate-blue: #4A90E2;
+  --color-neutral-grey: #64748b;
+  --color-error: #ba1a1a;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  --shadow-extruded: 4px 4px 8px rgba(163,177,198,0.4), -4px -4px 8px rgba(255,255,255,0.9);
+  --shadow-extruded-sm: 2px 2px 4px rgba(163,177,198,0.3), -2px -2px 4px rgba(255,255,255,0.8);
+  --shadow-extruded-lg: 8px 8px 16px rgba(163,177,198,0.45), -8px -8px 16px rgba(255,255,255,0.95);
+  --shadow-inset: inset 4px 4px 8px rgba(163,177,198,0.4), inset -4px -4px 8px rgba(255,255,255,0.9);
+  --shadow-inset-sm: inset 2px 2px 4px rgba(163,177,198,0.3), inset -2px -2px 4px rgba(255,255,255,0.8);
+  --shadow-button: 4px 4px 8px rgba(74,144,226,0.25), -4px -4px 8px rgba(255,255,255,0.9), inset 0 0 0 1px rgba(74,144,226,0.15);
+}
+
+/* ───────────────────────────────────────────────────
+   Base reset
+   ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; width: 100%; min-height: 100vh; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #0b1c30;
+  background: #F0F2F5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ───────────────────────────────────────────────────
+   Typography scale (type-* utilities)
+   ─────────────────────────────────────────────────── */
+.type-headline-lg {
+  font-family: Inter, sans-serif; font-size: 30px; font-weight: 700;
+  line-height: 38px; letter-spacing: -0.02em;
+}
+.type-headline-md {
+  font-family: Inter, sans-serif; font-size: 24px; font-weight: 600;
+  line-height: 32px; letter-spacing: -0.01em;
+}
+.type-headline-sm {
+  font-family: Inter, sans-serif; font-size: 20px; font-weight: 600;
+  line-height: 28px;
+}
+.type-body-lg  { font-family: Inter, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; }
+.type-body-md  { font-family: Inter, sans-serif; font-size: 14px; font-weight: 400; line-height: 20px; }
+.type-label-lg { font-family: Inter, sans-serif; font-size: 14px; font-weight: 600; line-height: 20px; }
+.type-label-md { font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; line-height: 16px; }
+
+/* ───────────────────────────────────────────────────
+   Neumorphic surface classes  (.neu-*)
+   ─────────────────────────────────────────────────── */
+.neu-flat {
+  background: #F0F2F5;
+  box-shadow: none;
+}
+.neu-extruded {
+  background: #ffffff;
+  box-shadow: var(--shadow-extruded);
+  border-radius: 1.5rem;
+}
+.neu-extruded-sm {
+  background: #ffffff;
+  box-shadow: var(--shadow-extruded-sm);
+  border-radius: 1rem;
+}
+.neu-extruded-lg {
+  background: #ffffff;
+  box-shadow: var(--shadow-extruded-lg);
+  border-radius: 1.5rem;
+}
+.neu-inset {
+  background: #F0F2F5;
+  box-shadow: var(--shadow-inset);
+  border-radius: 1rem;
+}
+.neu-inset-sm {
+  background: #F0F2F5;
+  box-shadow: var(--shadow-inset-sm);
+  border-radius: 0.75rem;
+}
+.neu-button-primary {
+  background: #ffffff;
+  box-shadow: var(--shadow-button);
+  border: 1px solid rgba(74,144,226,0.2);
+  border-radius: 1rem;
+  color: #4A90E2;
+  font-weight: 600;
+}
+.neu-button-primary:active {
+  box-shadow: var(--shadow-inset);
+  transform: translateY(1px);
+}
+.neu-button-secondary {
+  background: #ffffff;
+  box-shadow: var(--shadow-extruded-sm);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  color: #0b1c30;
+  font-weight: 600;
+}
+.neu-button-secondary:active {
+  box-shadow: var(--shadow-inset-sm);
+  transform: translateY(1px);
+}
+
+/* ───────────────────────────────────────────────────
+   Focus ring (accessibility)
+   ─────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #4A90E2;
+  outline-offset: 2px;
+}
