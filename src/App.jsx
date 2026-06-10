@@ -146,7 +146,7 @@ export default function App() {
     <div className="min-h-screen bg-background text-on-surface transition-colors duration-300">
       {/* ── Level 1: Top bar with Brand, Department Switcher, User Menu ── */}
       <header className="sticky top-0 z-20 bg-surface border-b border-outline-variant shadow-sm transition-colors duration-300">
-        <div className="flex items-center justify-between h-16 px-6">
+        <div className="flex items-center justify-between h-16 px-4 sm:px-6">
           {/* Brand Logo & Title */}
           <div className="flex items-center gap-2.5 shrink-0">
             <LogoIcon />
@@ -173,7 +173,8 @@ export default function App() {
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              IoT Department
+              <span className="hidden md:inline">IoT Department</span>
+              <span className="md:hidden">IoT</span>
             </button>
             <button
               onClick={() => setActiveDept('mobile')}
@@ -190,7 +191,8 @@ export default function App() {
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              Mobile Department
+              <span className="hidden md:inline">Mobile Department</span>
+              <span className="md:hidden">Mobile</span>
             </button>
           </div>
 
@@ -289,7 +291,7 @@ export default function App() {
 
       {/* ── Level 2: Sub-nav Page selection (To Do, Tasks, Progress, Meetings) ── */}
       <div className="sticky top-16 z-10 bg-surface border-b border-outline-variant shadow-sm transition-colors duration-300">
-        <div className="flex items-center gap-2 px-6 h-12 overflow-x-auto scrollbar-none relative">
+        <div className="flex items-center gap-2 px-4 sm:px-6 h-12 overflow-x-auto scrollbar-none relative">
           {PAGES.map((p) => {
             const isActive = activePage === p.key;
             return (

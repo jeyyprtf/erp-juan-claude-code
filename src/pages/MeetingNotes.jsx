@@ -133,17 +133,17 @@ export default function MeetingNotes({ department }) {
   );
 
   return (
-    <div className="max-w-[1400px] mx-auto px-8 py-6 space-y-6">
+    <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4 sm:py-6 space-y-6">
       {/* Page header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <div>
           <h1 className="type-headline-lg text-on-surface">Meeting Notes</h1>
           <p className="type-body-md text-on-surface-variant mt-1">
             Log meeting discussions, actions, and decisions for the <span className="font-semibold text-primary uppercase">{department}</span> team.
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="neu-inset-sm flex items-center gap-2 px-4 py-2 min-w-[280px]">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+          <div className="neu-inset-sm flex items-center gap-2 px-4 py-2 flex-1 sm:flex-initial sm:min-w-[280px]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-on-surface-variant">
               <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
             </svg>
@@ -155,7 +155,7 @@ export default function MeetingNotes({ department }) {
               className="flex-1 bg-transparent border-0 outline-none text-[14px] text-on-surface placeholder:text-on-surface-variant/60" 
             />
           </div>
-          <Button variant="primary" onClick={() => setShowAddForm(!showAddForm)}>
+          <Button variant="primary" onClick={() => setShowAddForm(!showAddForm)} className="w-full sm:w-auto">
             {showAddForm ? 'Cancel' : '+ New Meeting'}
           </Button>
         </div>
@@ -181,7 +181,7 @@ export default function MeetingNotes({ department }) {
                   onChange={(e) => setNewTitle(e.target.value)}
                   required
                 />
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Date"
                     placeholder="e.g. Tue, 09 Jun 2026"
@@ -195,7 +195,7 @@ export default function MeetingNotes({ department }) {
                     onChange={(e) => setNewTime(e.target.value)}
                   />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Location"
                     placeholder="e.g. Conf Room A or Discord"
@@ -288,7 +288,7 @@ export default function MeetingNotes({ department }) {
               </Card>
 
               {/* Workspaces Tabs */}
-              <div className="flex items-center gap-2">
+              <div className="flex flex-nowrap overflow-x-auto scrollbar-none items-center gap-2 w-full py-0.5">
                 {[
                   { key: 'notes', label: 'Notes & Transcriptions' },
                   { key: 'summary', label: 'Actions & Decisions Summary' },
@@ -296,7 +296,7 @@ export default function MeetingNotes({ department }) {
                   <button
                     key={t.key}
                     onClick={() => setActiveTab(t.key)}
-                    className={`px-4 py-2 rounded-full type-label-md transition-all ${
+                    className={`px-4 py-2 rounded-full type-label-md transition-all whitespace-nowrap ${
                       activeTab === t.key 
                         ? 'bg-primary text-white shadow-sm font-semibold' 
                         : 'neu-extruded-sm text-on-surface-variant hover:bg-surface-container-low'

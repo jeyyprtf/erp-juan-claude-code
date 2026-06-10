@@ -160,17 +160,17 @@ export default function TaskAssignment({ department }) {
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto px-8 py-6 space-y-6">
+    <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4 sm:py-6 space-y-6">
       {/* Page header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <div>
           <h1 className="type-headline-lg text-on-surface">Task Assignment</h1>
           <p className="type-body-md text-on-surface-variant mt-1">
             Distribute, prioritize, and track work for the <span className="font-semibold text-primary uppercase">{department}</span> team.
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="neu-inset-sm flex items-center gap-2 px-4 py-2 min-w-[280px]">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+          <div className="neu-inset-sm flex items-center gap-2 px-4 py-2 flex-1 sm:flex-initial sm:min-w-[280px]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-on-surface-variant">
               <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
             </svg>
@@ -182,14 +182,14 @@ export default function TaskAssignment({ department }) {
               className="flex-1 bg-transparent border-0 outline-none text-[14px] text-on-surface placeholder:text-on-surface-variant/60" 
             />
           </div>
-          <Button variant="primary" onClick={() => setShowAddForm(!showAddForm)}>
+          <Button variant="primary" onClick={() => setShowAddForm(!showAddForm)} className="w-full sm:w-auto">
             {showAddForm ? 'Cancel' : '+ New Task'}
           </Button>
         </div>
       </div>
 
       {/* Metrics Row */}
-      <section className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { label: 'Open Tasks', value: totalTasks, tone: 'primary', desc: 'Active backlog' },
           { label: 'High Priority', value: highPriorityCount, tone: 'warning', desc: 'Awaiting resolution' },
@@ -232,7 +232,7 @@ export default function TaskAssignment({ department }) {
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
                 />
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Due Date / Timeline"
                     type="date"

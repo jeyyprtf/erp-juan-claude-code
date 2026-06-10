@@ -101,17 +101,17 @@ export default function Todo({ department }) {
   const pendingTasks = totalTasks - completedTasks;
 
   return (
-    <div className="max-w-[1400px] mx-auto px-8 py-6">
+    <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4 sm:py-6">
       {/* Page header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
         <div>
           <h1 className="type-headline-lg text-on-surface">To Do List</h1>
           <p className="type-body-md text-on-surface-variant mt-1">
             Manage checklist items for the <span className="font-semibold text-primary uppercase">{department}</span> department.
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="neu-inset-sm flex items-center gap-2 px-4 py-2 min-w-[280px]">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+          <div className="neu-inset-sm flex items-center gap-2 px-4 py-2 flex-1 sm:flex-initial sm:min-w-[280px]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-on-surface-variant">
               <circle cx="11" cy="11" r="7" />
               <path d="m21 21-4.3-4.3" />
@@ -124,7 +124,7 @@ export default function Todo({ department }) {
               className="flex-1 bg-transparent border-0 outline-none text-[14px] text-on-surface placeholder:text-on-surface-variant/60"
             />
           </div>
-          <Button variant="primary" size="md" onClick={() => setShowAddForm(!showAddForm)}>
+          <Button variant="primary" size="md" onClick={() => setShowAddForm(!showAddForm)} className="w-full sm:w-auto">
             {showAddForm ? 'Cancel' : '+ New Item'}
           </Button>
         </div>
@@ -146,7 +146,7 @@ export default function Todo({ department }) {
                   onChange={(e) => setNewTitle(e.target.value)}
                   required
                 />
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-2">
                   <div className="flex flex-col gap-1.5">
                     <span className="type-label-md text-on-surface-variant uppercase">Priority</span>
                     <div className="flex gap-2">
@@ -166,7 +166,7 @@ export default function Todo({ department }) {
                       ))}
                     </div>
                   </div>
-                  <Button type="submit" variant="primary" className="ml-auto mt-5">
+                  <Button type="submit" variant="primary" className="sm:ml-auto w-full sm:w-auto mt-2 sm:mt-5">
                     Add Task
                   </Button>
                 </div>
@@ -175,14 +175,14 @@ export default function Todo({ department }) {
           )}
 
           {/* Filter Bar */}
-          <Card variant="extruded-sm" padding="px-5 py-3" className="border border-outline-variant/40">
+          <Card variant="extruded-sm" padding="px-4 py-2.5 sm:px-5 sm:py-3" className="border border-outline-variant/40 overflow-hidden">
             <div className="flex items-center justify-between">
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-nowrap overflow-x-auto scrollbar-none items-center gap-2 w-full py-0.5">
                 {['All Tasks', 'My Tasks', 'High Priority', 'Completed'].map((f) => (
                   <button
                     key={f}
                     onClick={() => setActiveFilter(f)}
-                    className={`px-4 py-1.5 rounded-lg type-label-lg transition-all ${
+                    className={`px-4 py-1.5 rounded-lg type-label-lg transition-all whitespace-nowrap ${
                       activeFilter === f
                         ? 'bg-primary text-white shadow-sm font-semibold'
                         : 'text-on-surface-variant hover:bg-primary-fixed hover:text-primary'

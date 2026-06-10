@@ -106,7 +106,7 @@ export default function ProgressTracking({ department }) {
   ];
 
   return (
-    <div className="max-w-[1400px] mx-auto px-8 py-6 space-y-6">
+    <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-4 sm:py-6 space-y-6">
       {/* Page Header */}
       <div>
         <h1 className="type-headline-lg text-on-surface">Worker Progress</h1>
@@ -185,7 +185,7 @@ export default function ProgressTracking({ department }) {
           {/* Individual Kanban Board */}
           {selectedWorker ? (
             <section className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-surface-container border border-outline-variant rounded-2xl p-4 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface-container border border-outline-variant rounded-2xl p-4 transition-colors">
                 <div className="flex items-center gap-3">
                   <Avatar name={selectedWorker.name} src={selectedWorker.avatar_url} size="lg" />
                   <div>
@@ -193,7 +193,7 @@ export default function ProgressTracking({ department }) {
                     <p className="type-body-md text-on-surface-variant">{selectedWorker.role} · Active load: {selectedWorker.load}%</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 shrink-0 sm:self-center">
+                <div className="flex items-center gap-4 shrink-0 mt-3 sm:mt-0">
                   <ProgressRing
                     value={completionPercent}
                     size={72}
@@ -209,7 +209,7 @@ export default function ProgressTracking({ department }) {
               </div>
 
               {/* Kanban Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {columns.map((col) => {
                   const list = workerTasks.filter((t) => t.status === col.key);
                   const isOver = dragOverColumn === col.key;

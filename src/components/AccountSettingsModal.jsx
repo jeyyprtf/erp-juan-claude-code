@@ -196,7 +196,7 @@ export default function AccountSettingsModal({ isOpen, onClose, currentUser, onU
                   className="space-y-5"
                 >
                   {/* Profile Picture Uploader */}
-                  <div className="flex items-center gap-5">
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5">
                     <div className="relative shrink-0">
                       <div className="w-16 h-16 rounded-full bg-primary-fixed text-primary font-bold text-headline-sm flex items-center justify-center shadow-inner overflow-hidden border border-outline-variant">
                         {avatarUrl ? (
@@ -206,7 +206,7 @@ export default function AccountSettingsModal({ isOpen, onClose, currentUser, onU
                         )}
                       </div>
                     </div>
-                    <div className="space-y-1.5">
+                    <div className="space-y-1.5 flex flex-col items-center sm:items-start">
                       <span className="type-label-md text-on-surface-variant uppercase tracking-wider block">Profile Picture</span>
                       <div className="flex gap-2">
                         <Button size="sm" variant="secondary" onClick={triggerFileSelect}>
