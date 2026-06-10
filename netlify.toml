@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/supabase/*"
+  from = "/db/*"
   to = "https://qjgbbfocdsciiwezczjf.supabase.co/:splat"
   status = 200
   force = true

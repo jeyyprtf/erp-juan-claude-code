@@ -6,7 +6,7 @@ const getSupabaseUrl = () => {
   // If running in browser and pointing directly to the hosted Supabase domain,
   // route via same-origin proxy to bypass ISP network blocks.
   if (typeof window !== 'undefined' && envUrl.includes('supabase.co')) {
-    return window.location.origin + '/supabase';
+    return window.location.origin + '/db';
   }
   return envUrl;
 };
