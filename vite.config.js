@@ -6,10 +6,15 @@ export default defineConfig({
   server: { 
     port: 5173,
     proxy: {
-      '/db': {
-        target: 'https://qjgbbfocdsciiwezczjf.supabase.co',
+      '/db/a': {
+        target: 'https://qjgbbfocdsciiwezczjf.supabase.co/auth/v1',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/db/, '')
+        rewrite: (path) => path.replace(/^\/db\/a/, '')
+      },
+      '/db/r': {
+        target: 'https://qjgbbfocdsciiwezczjf.supabase.co/rest/v1',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/db\/r/, '')
       }
     }
   },
