@@ -14,8 +14,8 @@ export default function ProgressRing({
   const offset = circumference - (value / 100) * circumference;
 
   const strokeColor = {
-    primary: '#4A90E2',
-    pastel: '#A5C9FF',
+    primary: 'var(--color-primary)',
+    pastel: 'var(--color-pastel-blue)',
     success: '#10b981',
   }[variant];
 
@@ -26,7 +26,7 @@ export default function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#e5eeff"
+          stroke="var(--color-outline-variant)"
           strokeWidth={stroke}
           fill="none"
         />

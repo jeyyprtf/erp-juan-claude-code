@@ -1,39 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* ───────────────────────────────────────────────────
    Soft Operations — CSS Variables
    ─────────────────────────────────────────────────── */
 :root {
-  --color-background: #F0F2F5;
+  --color-background: #FAF8F6;
   --color-surface: #FFFFFF;
-  --color-primary: #4A90E2;
-  --color-primary-container: #2976c7;
-  --color-primary-fixed: #d4e3ff;
-  --color-primary-fixed-dim: #a4c9ff;
-  --color-secondary-container: #a5c9fe;
-  --color-on-surface: #0b1c30;
-  --color-on-surface-variant: #414751;
-  --color-outline: #717783;
-  --color-outline-variant: #c1c7d3;
-  --color-pastel-blue: #A5C9FF;
-  --color-slate-blue: #4A90E2;
-  --color-neutral-grey: #64748b;
+  --color-surface-dim: #E6DFDB;
+  --color-surface-bright: #FFFFFF;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #FAF8F6;
+  --color-surface-container: #F2EBE7;
+  --color-surface-container-high: #E6DFDB;
+  --color-surface-container-highest: #DBCFC9;
+  --color-primary: #E25C37;
+  --color-primary-container: #C54523;
+  --color-primary-fixed: #FCEEEA;
+  --color-primary-fixed-dim: #F7D6CC;
+  --color-secondary: #5C4E4A;
+  --color-secondary-container: #F2EBE7;
+  --color-on-surface: #2E2522;
+  --color-on-surface-variant: #6E5D57;
+  --color-outline: #9E8C86;
+  --color-outline-variant: #E6DFDB;
+  --color-pastel-blue: #F7D6CC;
+  --color-slate-blue: #E25C37;
+  --color-neutral-grey: #8A7872;
   --color-error: #ba1a1a;
   --radius-sm: 0.25rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
-  --shadow-extruded: 4px 4px 8px rgba(163,177,198,0.4), -4px -4px 8px rgba(255,255,255,0.9);
-  --shadow-extruded-sm: 2px 2px 4px rgba(163,177,198,0.3), -2px -2px 4px rgba(255,255,255,0.8);
-  --shadow-extruded-lg: 8px 8px 16px rgba(163,177,198,0.45), -8px -8px 16px rgba(255,255,255,0.95);
-  --shadow-inset: inset 4px 4px 8px rgba(163,177,198,0.4), inset -4px -4px 8px rgba(255,255,255,0.9);
-  --shadow-inset-sm: inset 2px 2px 4px rgba(163,177,198,0.3), inset -2px -2px 4px rgba(255,255,255,0.8);
-  --shadow-button: 4px 4px 8px rgba(74,144,226,0.25), -4px -4px 8px rgba(255,255,255,0.9), inset 0 0 0 1px rgba(74,144,226,0.15);
+  --shadow-extruded: 4px 4px 8px rgba(158,140,134,0.15), -4px -4px 8px rgba(255,255,255,0.9);
+  --shadow-extruded-sm: 2px 2px 4px rgba(158,140,134,0.12), -2px -2px 4px rgba(255,255,255,0.8);
+  --shadow-extruded-lg: 8px 8px 16px rgba(158,140,134,0.18), -8px -8px 16px rgba(255,255,255,0.95);
+  --shadow-inset: inset 4px 4px 8px rgba(158,140,134,0.15), inset -4px -4px 8px rgba(255,255,255,0.9);
+  --shadow-inset-sm: inset 2px 2px 4px rgba(158,140,134,0.12), inset -2px -2px 4px rgba(255,255,255,0.8);
+  --shadow-button: 4px 4px 8px rgba(226,92,55,0.15), -4px -4px 8px rgba(255,255,255,0.9), inset 0 0 0 1px rgba(226,92,55,0.15);
+}
+
+.dark {
+  --color-background: #181514;
+  --color-surface: #221E1D;
+  --color-surface-dim: #1C1918;
+  --color-surface-bright: #2C2725;
+  --color-surface-container-lowest: #12100F;
+  --color-surface-container-low: #1C1918;
+  --color-surface-container: #26211F;
+  --color-surface-container-high: #302A27;
+  --color-surface-container-highest: #3B3330;
+  --color-primary: #F07151;
+  --color-primary-container: #D95332;
+  --color-primary-fixed: #3A231C;
+  --color-primary-fixed-dim: #553328;
+  --color-secondary: #CBBDB6;
+  --color-secondary-container: #2E2826;
+  --color-on-surface: #FAF8F6;
+  --color-on-surface-variant: #CBBDB6;
+  --color-outline: #85756F;
+  --color-outline-variant: #35302E;
+  --color-pastel-blue: #553328;
+  --color-slate-blue: #F07151;
+  --color-neutral-grey: #9E8D87;
+  
+  --shadow-extruded: 4px 4px 12px rgba(0, 0, 0, 0.45), -4px -4px 12px rgba(255, 255, 255, 0.02);
+  --shadow-extruded-sm: 2px 2px 6px rgba(0, 0, 0, 0.4), -2px -2px 6px rgba(255, 255, 255, 0.02);
+  --shadow-extruded-lg: 8px 8px 24px rgba(0, 0, 0, 0.55), -8px -8px 24px rgba(255, 255, 255, 0.02);
+  --shadow-inset: inset 4px 4px 10px rgba(0, 0, 0, 0.45), inset -4px -4px 10px rgba(255, 255, 255, 0.02);
+  --shadow-inset-sm: inset 2px 2px 5px rgba(0, 0, 0, 0.4), inset -2px -2px 5px rgba(255, 255, 255, 0.02);
+  --shadow-button: 4px 4px 10px rgba(240,113,81,0.1), -4px -4px 10px rgba(255,255,255,0.02), inset 0 0 0 1px rgba(240,113,81,0.18);
 }
 
 /* ───────────────────────────────────────────────────
@@ -46,10 +86,20 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #0b1c30;
-  background: #F0F2F5;
+  color: var(--color-on-surface);
+  background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Smooth transition for theme switching */
+body, header, main, nav, input, select, textarea {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
+}
+
+.neu-extruded, .neu-extruded-sm, .neu-extruded-lg, .neu-inset, .neu-inset-sm, button {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
 }
 
 /* ───────────────────────────────────────────────────
@@ -76,40 +126,40 @@ body {
    Neumorphic surface classes  (.neu-*)
    ─────────────────────────────────────────────────── */
 .neu-flat {
-  background: #F0F2F5;
+  background: var(--color-background);
   box-shadow: none;
 }
 .neu-extruded {
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: var(--shadow-extruded);
   border-radius: 1.5rem;
 }
 .neu-extruded-sm {
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: var(--shadow-extruded-sm);
   border-radius: 1rem;
 }
 .neu-extruded-lg {
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: var(--shadow-extruded-lg);
   border-radius: 1.5rem;
 }
 .neu-inset {
-  background: #F0F2F5;
+  background: var(--color-background);
   box-shadow: var(--shadow-inset);
   border-radius: 1rem;
 }
 .neu-inset-sm {
-  background: #F0F2F5;
+  background: var(--color-background);
   box-shadow: var(--shadow-inset-sm);
   border-radius: 0.75rem;
 }
 .neu-button-primary {
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: var(--shadow-button);
-  border: 1px solid rgba(74,144,226,0.2);
+  border: 1px solid rgba(226,92,55,0.2);
   border-radius: 1rem;
-  color: #4A90E2;
+  color: var(--color-primary);
   font-weight: 600;
 }
 .neu-button-primary:active {
@@ -117,11 +167,11 @@ body {
   transform: translateY(1px);
 }
 .neu-button-secondary {
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: var(--shadow-extruded-sm);
   border: 1px solid transparent;
   border-radius: 1rem;
-  color: #0b1c30;
+  color: var(--color-on-surface);
   font-weight: 600;
 }
 .neu-button-secondary:active {
@@ -133,6 +183,6 @@ body {
    Focus ring (accessibility)
    ─────────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #4A90E2;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }

@@ -35,7 +35,13 @@ export default function Avatar({
     .join('')
     .toUpperCase();
 
-  const colors = ['bg-pastel-blue text-secondary', 'bg-emerald-100 text-emerald-700', 'bg-amber-100 text-amber-700', 'bg-rose-100 text-rose-700', 'bg-violet-100 text-violet-700'];
+  const colors = [
+    'bg-primary-fixed text-primary',
+    'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20',
+    'bg-amber-500/10 text-amber-500 border border-amber-500/20',
+    'bg-rose-500/10 text-rose-500 border border-rose-500/20',
+    'bg-violet-500/10 text-violet-500 border border-violet-500/20'
+  ];
   const colorIndex = name.length ? name.charCodeAt(0) % colors.length : 0;
   const tone = colors[colorIndex];
 
@@ -45,7 +51,7 @@ export default function Avatar({
         {src ? <img src={src} alt={name} className="w-full h-full object-cover" /> : initials}
       </div>
       {status && (
-        <span className={`absolute -bottom-0.5 -right-0.5 ${dotSize} ${statusColor} rounded-full ring-2 ring-white`} />
+        <span className={`absolute -bottom-0.5 -right-0.5 ${dotSize} ${statusColor} rounded-full ring-2 ring-surface`} />
       )}
     </div>
   );

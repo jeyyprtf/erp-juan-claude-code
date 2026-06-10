@@ -21,7 +21,7 @@ export default function Button({
   const variantMap = {
     primary: 'neu-button-primary',
     secondary: 'neu-button-secondary',
-    ghost: 'bg-transparent text-[#4A90E2] hover:bg-[#e5eeff] rounded-xl',
+    ghost: 'bg-transparent text-primary hover:bg-primary/10 rounded-xl',
   };
 
   return (

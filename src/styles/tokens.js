@@ -3,27 +3,27 @@
 // Mirrors the tokens defined in tailwind.config.js for use in JS (e.g. inline styles, charts).
 
 export const colors = {
-  background: '#F0F2F5',
+  background: '#FAF8F6',
   surface: '#FFFFFF',
-  primary: '#4A90E2',
-  primaryContainer: '#2976c7',
-  primaryFixed: '#d4e3ff',
-  primaryFixedDim: '#a4c9ff',
-  secondary: '#3b608f',
-  secondaryContainer: '#a5c9fe',
-  onSurface: '#0b1c30',
-  onSurfaceVariant: '#414751',
-  outline: '#717783',
-  outlineVariant: '#c1c7d3',
-  pastelBlue: '#A5C9FF',
-  slateBlue: '#4A90E2',
-  neutralGrey: '#64748b',
+  primary: '#E25C37',
+  primaryContainer: '#C54523',
+  primaryFixed: '#FCEEEA',
+  primaryFixedDim: '#F7D6CC',
+  secondary: '#5C4E4A',
+  secondaryContainer: '#F2EBE7',
+  onSurface: '#2E2522',
+  onSurfaceVariant: '#6E5D57',
+  outline: '#9E8C86',
+  outlineVariant: '#E6DFDB',
+  pastelBlue: '#F7D6CC',
+  slateBlue: '#E25C37',
+  neutralGrey: '#8A7872',
   error: '#ba1a1a',
   surfaceContainerLowest: '#ffffff',
-  surfaceContainerLow: '#eff4ff',
-  surfaceContainer: '#e5eeff',
-  surfaceContainerHigh: '#dce9ff',
-  surfaceContainerHighest: '#d3e4fe',
+  surfaceContainerLow: '#FAF3EE',
+  surfaceContainer: '#F6ECE4',
+  surfaceContainerHigh: '#EFE1D7',
+  surfaceContainerHighest: '#E8D5CA',
 };
 
 export const typography = {
@@ -46,12 +46,12 @@ export const radius = {
 };
 
 export const shadows = {
-  extruded: '4px 4px 8px rgba(163, 177, 198, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.9)',
-  extrudedSm: '2px 2px 4px rgba(163, 177, 198, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.8)',
-  extrudedLg: '8px 8px 16px rgba(163, 177, 198, 0.45), -8px -8px 16px rgba(255, 255, 255, 0.95)',
-  inset: 'inset 4px 4px 8px rgba(163, 177, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9)',
-  insetSm: 'inset 2px 2px 4px rgba(163, 177, 198, 0.3), inset -2px -2px 4px rgba(255, 255, 255, 0.8)',
-  button: '4px 4px 8px rgba(74, 144, 226, 0.25), -4px -4px 8px rgba(255, 255, 255, 0.9), inset 0 0 0 1px rgba(74, 144, 226, 0.15)',
+  extruded: '4px 4px 8px rgba(158,140,134,0.15), -4px -4px 8px rgba(255,255,255,0.9)',
+  extrudedSm: '2px 2px 4px rgba(158,140,134,0.12), -2px -2px 4px rgba(255,255,255,0.8)',
+  extrudedLg: '8px 8px 16px rgba(158,140,134,0.18), -8px -8px 16px rgba(255,255,255,0.95)',
+  inset: 'inset 4px 4px 8px rgba(158,140,134,0.15), inset -4px -4px 8px rgba(255,255,255,0.9)',
+  insetSm: 'inset 2px 2px 4px rgba(158,140,134,0.12), inset -2px -2px 4px rgba(255,255,255,0.8)',
+  button: '4px 4px 8px rgba(226, 92, 55, 0.15), -4px -4px 8px rgba(255, 255, 255, 0.9), inset 0 0 0 1px rgba(226, 92, 55, 0.15)',
 };
 
 export const spacing = {
