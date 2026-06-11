@@ -134,13 +134,6 @@ export const authService = {
       });
       if (error) throw error;
 
-      // Check if a profile with this email already exists (e.g., from seed data)
-      const { data: existingProfile } = await supabase
-        .from('profiles')
-        .select('id')
-        .eq('email', email)
-        .maybeSingle();
-
       const profileData = {
         id: data.user.id,
         email,
@@ -149,21 +142,6 @@ export const authService = {
         role: role || 'Team Member',
         load: 0
       };
-
-      if (existingProfile) {
-        // Update the existing profile's ID to the new auth user ID (cascades tasks via ON UPDATE CASCADE)
-        const { error: updateError } = await supabase
-          .from('profiles')
-          .update({ id: data.user.id, name, department, role: role || 'Team Member' })
-          .eq('email', email);
-        if (updateError) throw updateError;
-      } else {
-        // Insert new profile
-        const { error: insertError } = await supabase
-          .from('profiles')
-          .insert(profileData);
-        if (insertError) throw insertError;
-      }
       
       return { ...data.user, ...profileData };
     } else {

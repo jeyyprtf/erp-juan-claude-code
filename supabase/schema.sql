@@ -99,6 +99,32 @@ CREATE POLICY "Allow read/write access to authenticated users on meeting_note_it
 CREATE POLICY "Allow public read access to profiles" 
   ON public.profiles FOR SELECT TO public USING (true);
 
+-- Trigger to automatically create a profile when a new auth user is created
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id, email, name, role, department, load)
+  VALUES (
+    NEW.id,
+    NEW.email,
+    COALESCE(NEW.raw_user_meta_data->>'name', 'New Member'),
+    COALESCE(NEW.raw_user_meta_data->>'role', 'Team Member'),
+    COALESCE(NEW.raw_user_meta_data->>'department', 'mobile'),
+    0
+  )
+  ON CONFLICT (email) DO UPDATE
+  SET id = EXCLUDED.id,
+      name = EXCLUDED.name,
+      role = EXCLUDED.role,
+      department = EXCLUDED.department;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE OR REPLACE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+
 -- =========================================================================
 -- Seed Initial Sample Data
 -- =========================================================================
